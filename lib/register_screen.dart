@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'options_user.dart'; // Import OptionsUser
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -16,8 +17,8 @@ class RegisterScreen extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [
                   Color(0xFF1B3C2D), // Dark Green (Top)
-                  Color(0xFF000000), // Black (Middle
-                  Color(0xFF1B3C2D), // Black (Middle)
+                  Color(0xFF000000), // Black (Middle)
+                  Color(0xFF1B3C2D), // Dark Green (Bottom)
                 ],
               ),
             ),
@@ -63,7 +64,7 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        // Add register functionality here
+                        _showRegisterCompleteDialog(context);
                       },
                       child: const Text(
                         'Register',
@@ -77,6 +78,34 @@ class RegisterScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  // Function to show the registration complete dialog
+  void _showRegisterCompleteDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          title: const Text("Success!"),
+          content: const Text("Register Complete!"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const OptionsUser()),
+                );
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
     );
   }
 

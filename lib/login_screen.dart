@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'register_screen.dart'; // Import RegisterScreen
+import 'signup_screen.dart'; // Changed to SignupScreen
 import 'home_screen.dart'; // Import HomeScreen
 
 class LoginScreen extends StatelessWidget {
@@ -123,7 +123,9 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const RegisterScreen(),
+                            builder:
+                                (context) =>
+                                    const SignupScreen(), // Changed here
                           ),
                         );
                       },
