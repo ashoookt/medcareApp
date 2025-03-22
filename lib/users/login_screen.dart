@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'signup_screen.dart'; // Changed to SignupScreen
-import 'home_screen.dart'; // Import HomeScreen
+import 'signup_screen.dart';
+import '../features/home_screen.dart';
+import '../reset_pass/forgotpass_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -79,7 +80,14 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {}, // Forgot Password Logic
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordScreen(),
+                        ),
+                      );
+                    }, // Forgot Password Logic
                     child: const Text(
                       "Forgot Password?",
                       style: TextStyle(color: Colors.white70),

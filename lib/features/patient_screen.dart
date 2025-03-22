@@ -22,7 +22,7 @@ class _PatientScreenState extends State<PatientScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> _filteredPatients =
+    List<String> filteredPatients =
         _allPatients
             .where(
               (patient) =>
@@ -31,7 +31,7 @@ class _PatientScreenState extends State<PatientScreen> {
             .toList();
 
     if (_isSortedAZ) {
-      _filteredPatients.sort((a, b) => a.compareTo(b));
+      filteredPatients.sort((a, b) => a.compareTo(b));
     }
 
     return Scaffold(
@@ -164,10 +164,10 @@ class _PatientScreenState extends State<PatientScreen> {
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.all(15),
-                  itemCount: _filteredPatients.length,
+                  itemCount: filteredPatients.length,
                   itemBuilder:
                       (context, index) =>
-                          _buildPatientTile(_filteredPatients[index]),
+                          _buildPatientTile(filteredPatients[index]),
                 ),
               ),
             ],
